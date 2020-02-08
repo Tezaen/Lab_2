@@ -22,7 +22,7 @@ function checkGuess(){
     if(guess_count === 1){
         guesses.innerHTML = "Previous guesses: ";
     }
-    
+    guesses.innerHTML += user_guess + ' ';
     
     if(user_guess === random_number){
         last_result.innerHTML = "Congratulations! You got it right!";
@@ -30,31 +30,29 @@ function checkGuess(){
         low_or_hi.innerHTML = '';
         games_won_no++;
         games_won.innerHTML = games_won_no;
-        guesses.innerHTML += user_guess + ' ';
         setGameOver();
     }else if(guess_count === 7){
         last_result.innerHTML = "Sorry! You LOST!!!";
         games_lost_no++;
         games_lost.innerHTML = games_lost_no;
-        guesses.innerHTML += user_guess + ' ';
         setGameOver();
     }else{
         if(user_guess > 99){
             last_result.innerHTML = "Too High of a guess!";
             last_result.style.background = 'yellow';
             guess_count--;
-            guesses.innerHTML += user_guess + ' ';
+            
             console.log(guess_count);
         }else{
             last_result.innerHTML = "WRONG!";
             last_result.style.backgroundColor = 'red';
             if(user_guess < random_number) {
                 low_or_hi.innerHTML = "Last guess was too low!";
-                guesses.innerHTML += user_guess + ' ';
+                
                 console.log(guess_count);
             }else if(user_guess > random_number){
                 low_or_hi.innerHTML = "Last guess was too high!";
-                guesses.innerHTML += user_guess + ' ';
+                
                 console.log(guess_count);
             }
         }
