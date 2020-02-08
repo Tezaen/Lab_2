@@ -43,6 +43,7 @@ function checkGuess(){
             last_result.innerHTML = "Too High of a guess!";
             last_result.style.background = 'yellow';
             guess_count--;
+            guesses.innerHTML += user_guess + ' ';
             console.log(guess_count);
         }else{
             last_result.innerHTML = "WRONG!";
